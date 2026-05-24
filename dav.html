@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DJP - Dav Janta Party</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#050816;
+overflow-x:hidden;
+color:white;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#070b1f;
+}
+
+::-webkit-scrollbar-thumb{
+background:linear-gradient(180deg,#00d9ff,#6f00ff);
+border-radius:20px;
+}
+
+/* BACKGROUND */
+
+.bg-animation{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:-10;
+overflow:hidden;
+}
+
+.circle{
+position:absolute;
+border-radius:50%;
+background:rgba(255,255,255,0.04);
+animation:float 20s linear infinite;
+}
+
+.circle:nth-child(1){
+width:200px;
+height:200px;
+left:10%;
+top:20%;
+animation-duration:25s;
+}
+
+.circle:nth-child(2){
+width:300px;
+height:300px;
+right:5%;
+top:50%;
+animation-duration:35s;
+}
+
+.circle:nth-child(3){
+width:150px;
+height:150px;
+left:50%;
+bottom:10%;
+animation-duration:18s;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0px) rotate(0deg);
+}
+50%{
+transform:translateY(-50px) rotate(180deg);
+}
+100%{
+transform:translateY(0px) rotate(360deg);
+}
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+backdrop-filter:blur(14px);
+background:rgba(0,0,0,0.25);
+border-bottom:1px solid rgba(255,255,255,0.1);
+z-index:1000;
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+background:linear-gradient(90deg,#00e0ff,#8a2eff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.logo span{
+font-size:14px;
+display:block;
+font-weight:400;
+letter-spacing:2px;
+color:#d0d0d0;
+-webkit-text-fill-color:#d0d0d0;
+}
+
+nav ul{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+font-size:15px;
+transition:0.3s;
+font-weight:500;
+}
+
+nav ul li a:hover{
+color:#00d9ff;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:130px 7% 80px;
+position:relative;
+}
+
+.hero-content{
+max-width:900px;
+text-align:center;
+animation:fadeUp 1s ease;
+}
+
+.hero h1{
+font-size:70px;
+font-weight:800;
+line-height:1.1;
+margin-bottom:25px;
+background:linear-gradient(90deg,#ffffff,#00e1ff,#8f00ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+font-size:18px;
+line-height:1.8;
+color:#d0d0d0;
+margin-bottom:40px;
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.hero-buttons button{
+padding:16px 34px;
+border:none;
+border-radius:50px;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:0.4s;
+}
+
+.primary-btn{
+background:linear-gradient(90deg,#00d9ff,#6f00ff);
+color:white;
+box-shadow:0 0 30px rgba(111,0,255,0.4);
+}
+
+.primary-btn:hover{
+transform:translateY(-4px) scale(1.05);
+}
+
+.secondary-btn{
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.1);
+color:white;
+backdrop-filter:blur(10px);
+}
+
+.secondary-btn:hover{
+background:rgba(255,255,255,0.15);
+}
+
+/* SECTION */
+
+.section{
+padding:100px 7%;
+}
+
+.section-title{
+font-size:42px;
+font-weight:800;
+margin-bottom:18px;
+text-align:center;
+background:linear-gradient(90deg,#00d9ff,#a200ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.section-subtitle{
+text-align:center;
+max-width:800px;
+margin:auto;
+color:#cfcfcf;
+line-height:1.8;
+margin-bottom:60px;
+}
+
+/* CARDS */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:28px;
+padding:35px;
+backdrop-filter:blur(14px);
+transition:0.4s;
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:"";
+position:absolute;
+width:180px;
+height:180px;
+background:rgba(0,217,255,0.15);
+border-radius:50%;
+top:-80px;
+right:-80px;
+filter:blur(40px);
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-color:#00d9ff;
+box-shadow:0 0 35px rgba(0,217,255,0.15);
+}
+
+.card h2{
+font-size:28px;
+margin-bottom:15px;
+}
+
+.card p{
+line-height:1.8;
+color:#d0d0d0;
+margin-bottom:25px;
+}
+
+/* VOTE BUTTON */
+
+.vote-btn{
+width:100%;
+padding:18px;
+border:none;
+border-radius:18px;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+background:linear-gradient(90deg,#00d9ff,#7a00ff);
+color:white;
+transition:0.4s;
+}
+
+.vote-btn:hover{
+transform:scale(1.03);
+}
+
+.vote-btn.voted{
+background:#202020;
+cursor:not-allowed;
+opacity:0.8;
+}
+
+/* FORM */
+
+.input-box{
+margin-bottom:20px;
+}
+
+.input-box input,
+.input-box textarea{
+width:100%;
+padding:16px 18px;
+border:none;
+outline:none;
+border-radius:18px;
+background:rgba(255,255,255,0.08);
+color:white;
+font-size:15px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.input-box textarea{
+height:140px;
+resize:none;
+}
+
+.input-box input::placeholder,
+.input-box textarea::placeholder{
+color:#bcbcbc;
+}
+
+.submit-btn{
+width:100%;
+padding:16px;
+border:none;
+border-radius:18px;
+background:linear-gradient(90deg,#00d9ff,#7300ff);
+color:white;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+transition:0.4s;
+}
+
+.submit-btn:hover{
+transform:translateY(-3px);
+}
+
+/* POSTS */
+
+.posts{
+margin-top:25px;
+display:flex;
+flex-direction:column;
+gap:20px;
+max-height:450px;
+overflow-y:auto;
+padding-right:5px;
+}
+
+.post{
+background:rgba(255,255,255,0.06);
+padding:20px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.08);
+animation:fadeUp 0.5s ease;
+}
+
+.post-user{
+font-weight:700;
+font-size:15px;
+color:#00d9ff;
+margin-bottom:10px;
+}
+
+.post-text{
+line-height:1.8;
+color:#d8d8d8;
+word-wrap:break-word;
+}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+margin-top:50px;
+}
+
+.stat-box{
+background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:25px;
+text-align:center;
+border:1px solid rgba(255,255,255,0.08);
+transition:0.4s;
+}
+
+.stat-box:hover{
+transform:translateY(-6px);
+}
+
+.stat-box h3{
+font-size:45px;
+background:linear-gradient(90deg,#00e1ff,#7a00ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.stat-box p{
+margin-top:10px;
+color:#d0d0d0;
+}
+
+/* FOOTER */
+
+footer{
+padding:40px 7%;
+text-align:center;
+border-top:1px solid rgba(255,255,255,0.08);
+margin-top:80px;
+background:rgba(255,255,255,0.03);
+}
+
+footer h2{
+font-size:28px;
+margin-bottom:10px;
+}
+
+footer p{
+color:#cfcfcf;
+line-height:1.8;
+}
+
+/* TOAST */
+
+.toast{
+position:fixed;
+bottom:30px;
+right:30px;
+background:#111;
+padding:18px 24px;
+border-radius:16px;
+border:1px solid rgba(255,255,255,0.1);
+box-shadow:0 0 30px rgba(0,0,0,0.4);
+transform:translateY(120px);
+opacity:0;
+transition:0.4s;
+z-index:9999;
+}
+
+.toast.show{
+transform:translateY(0);
+opacity:1;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:50px;
+}
+
+nav ul{
+display:none;
+}
+
+.section-title{
+font-size:34px;
+}
+
+}
+
+@media(max-width:600px){
+
+.hero h1{
+font-size:38px;
+}
+
+.hero p{
+font-size:15px;
+}
+
+.card{
+padding:25px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg-animation">
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+</div>
+
+<nav>
+
+<div class="logo">
+DJP
+<span>Founder of DJP - Arhan Escobar</span>
+</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#vote">Vote</a></li>
+<li><a href="#thoughts">Thoughts</a></li>
+<li><a href="#complaints">Complaints</a></li>
+</ul>
+
+</nav>
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<h1>
+DAV JANTA PARTY
+</h1>
+
+<p>
+A modern digital public platform where every citizen can share opinions,
+support leadership, express concerns, and participate in the future of the community.
+Transparency, justice, unity and voice of the people — everything in one place.
+</p>
+
+<div class="hero-buttons">
+
+<button class="primary-btn" onclick="scrollToSection('vote')">
+Vote Now
+</button>
+
+<button class="secondary-btn" onclick="scrollToSection('thoughts')">
+Public Thoughts
+</button>
+
+<button class="secondary-btn" onclick="scrollToSection('complaints')">
+Admin Complaints
+</button>
+
+</div>
+
+<div class="stats">
+
+<div class="stat-box">
+<h3 id="voteCount">0</h3>
+<p>Total Votes</p>
+</div>
+
+<div class="stat-box">
+<h3 id="thoughtCount">0</h3>
+<p>Public Thoughts</p>
+</div>
+
+<div class="stat-box">
+<h3 id="complaintCount">0</h3>
+<p>Complaints Posted</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="vote">
+
+<h1 class="section-title">
+Official Voting System
+</h1>
+
+<p class="section-subtitle">
+Every citizen has the power to support the movement.
+One device can vote only once. Your vote will be saved securely.
+</p>
+
+<div class="grid">
+
+<div class="card">
+
+<h2>
+Vote For Dav Taylor
+</h2>
+
+<p>
+Support the leadership vision and help strengthen the future of DJP.
+Your vote matters and will instantly reflect in live statistics.
+</p>
+
+<button id="voteBtn" class="vote-btn">
+Vote For Dav Taylor
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>
+DJP Mission
+</h2>
+
+<p>
+To create a fair and transparent community where every individual can speak freely,
+share experiences and participate equally without fear or suppression.
+</p>
+
+<p>
+✔ Live Public Interaction <br>
+✔ Community Driven Decisions <br>
+✔ Real-Time Public Posts <br>
+✔ Luxury Modern Experience
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section" id="thoughts">
+
+<h1 class="section-title">
+Public Thoughts
+</h1>
+
+<p class="section-subtitle">
+Citizens can post positive thoughts, ideas, appreciation and suggestions publicly.
+Everyone visiting the website can read all thoughts like a community forum.
+</p>
+
+<div class="grid">
+
+<div class="card">
+
+<h2>
+Share Your Thought
+</h2>
+
+<div class="input-box">
+<input type="text" id="thoughtUsername" placeholder="Enter Username">
+</div>
+
+<div class="input-box">
+<textarea id="thoughtMessage" placeholder="Write your thoughts about DJP..."></textarea>
+</div>
+
+<button class="submit-btn" id="thoughtBtn">
+Post Thought
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>
+Public Feed
+</h2>
+
+<p>
+All public thoughts posted by citizens will appear here in real-time.
+</p>
+
+<div class="posts" id="thoughtPosts">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="complaints">
+
+<h1 class="section-title">
+Admin Complaints
+</h1>
+
+<p class="section-subtitle">
+Users can respectfully report issues, unfair treatment or problems caused by admins.
+Transparency is important for community improvement.
+</p>
+
+<div class="grid">
+
+<div class="card">
+
+<h2>
+Submit Complaint
+</h2>
+
+<div class="input-box">
+<input type="text" id="complaintUsername" placeholder="Enter Username">
+</div>
+
+<div class="input-box">
+<textarea id="complaintMessage" placeholder="Explain what happened..."></textarea>
+</div>
+
+<button class="submit-btn" id="complaintBtn">
+Submit Complaint
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>
+Complaint Feed
+</h2>
+
+<p>
+All submitted complaints are visible publicly to maintain transparency.
+</p>
+
+<div class="posts" id="complaintPosts">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h1 class="section-title">
+Why People Support DJP
+</h1>
+
+<p class="section-subtitle">
+A modern movement built with public participation, transparency and innovation.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h2>Transparency</h2>
+<p>
+Every public opinion matters. Complaints and feedback are visible to everyone,
+creating accountability and trust within the community.
+</p>
+</div>
+
+<div class="card">
+<h2>Modern Digital Experience</h2>
+<p>
+Luxury futuristic interface, live statistics, animations and smooth interactions
+create a professional political platform experience.
+</p>
+</div>
+
+<div class="card">
+<h2>Community Voice</h2>
+<p>
+Unlike traditional systems, DJP allows users to express support and concerns openly
+through interactive public boards.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h1 class="section-title">
+DJP Slogans
+</h1>
+
+<p class="section-subtitle">
+Voices that represent unity, justice and power of the public.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h2>"Voice Of The Citizens"</h2>
+<p>
+A slogan representing freedom of expression and people-first leadership.
+</p>
+</div>
+
+<div class="card">
+<h2>"Power To The Public"</h2>
+<p>
+Every individual deserves a voice in shaping the future.
+</p>
+</div>
+
+<div class="card">
+<h2>"Justice Through Unity"</h2>
+<p>
+Together the community becomes stronger, safer and more transparent.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2>DJP - Dav Janta Party</h2>
+
+<p>
+Founder of DJP - Arhan Escobar <br>
+Luxury Digital Political Platform © 2026
+</p>
+
+</footer>
+
+<div class="toast" id="toast">
+Action Completed
+</div>
+
+<!-- FIREBASE -->
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+addDoc,
+getDocs,
+onSnapshot,
+query,
+orderBy,
+serverTimestamp,
+increment,
+doc,
+updateDoc,
+getDoc,
+setDoc
+}
+
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAJ8r05633-q7vOdjfSHOJSyKhEZOolRI4",
+  authDomain: "dav-janta-party.firebaseapp.com",
+  projectId: "dav-janta-party",
+  storageBucket: "dav-janta-party.firebasestorage.app",
+  messagingSenderId: "3700048698",
+  appId: "1:3700048698:web:d47d92ec3d57858f6b4603"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+/* ELEMENTS */
+
+const voteBtn = document.getElementById("voteBtn");
+
+const thoughtBtn = document.getElementById("thoughtBtn");
+
+const complaintBtn = document.getElementById("complaintBtn");
+
+const thoughtPosts = document.getElementById("thoughtPosts");
+
+const complaintPosts = document.getElementById("complaintPosts");
+
+const voteCount = document.getElementById("voteCount");
+
+const thoughtCount = document.getElementById("thoughtCount");
+
+const complaintCount = document.getElementById("complaintCount");
+
+/* TOAST */
+
+function showToast(message){
+
+const toast = document.getElementById("toast");
+
+toast.innerText = message;
+
+toast.classList.add("show");
+
+setTimeout(()=>{
+toast.classList.remove("show");
+},3000);
+
+}
+
+/* SMOOTH SCROLL */
+
+window.scrollToSection = function(id){
+
+document.getElementById(id).scrollIntoView({
+behavior:"smooth"
+});
+
+};
+
+/* VOTE SYSTEM */
+
+async function loadVote(){
+
+const voted = localStorage.getItem("djp_voted");
+
+if(voted){
+
+voteBtn.innerText = "You Have Been Voted";
+
+voteBtn.classList.add("voted");
+
+voteBtn.disabled = true;
+
+}
+
+const statsRef = doc(db,"stats","main");
+
+const statsSnap = await getDoc(statsRef);
+
+if(statsSnap.exists()){
+
+voteCount.innerText = statsSnap.data().votes || 0;
+
+thoughtCount.innerText = statsSnap.data().thoughts || 0;
+
+complaintCount.innerText = statsSnap.data().complaints || 0;
+
+}else{
+
+await setDoc(statsRef,{
+votes:0,
+thoughts:0,
+complaints:0
+});
+
+}
+
+}
+
+voteBtn.addEventListener("click",async()=>{
+
+if(localStorage.getItem("djp_voted")){
+
+showToast("You already voted");
+
+return;
+
+}
+
+try{
+
+const statsRef = doc(db,"stats","main");
+
+await updateDoc(statsRef,{
+votes:increment(1)
+});
+
+localStorage.setItem("djp_voted","yes");
+
+voteBtn.innerText = "You Have Been Voted";
+
+voteBtn.classList.add("voted");
+
+voteBtn.disabled = true;
+
+showToast("Vote Submitted Successfully");
+
+loadVote();
+
+}catch(error){
+
+console.log(error);
+
+showToast("Error While Voting");
+
+}
+
+});
+
+/* THOUGHT SYSTEM */
+
+thoughtBtn.addEventListener("click",async()=>{
+
+const username =
+document.getElementById("thoughtUsername").value.trim();
+
+const message =
+document.getElementById("thoughtMessage").value.trim();
+
+if(username === "" || message === ""){
+
+showToast("Fill All Fields");
+
+return;
+
+}
+
+try{
+
+await addDoc(collection(db,"thoughts"),{
+
+username:username,
+
+message:message,
+
+created:serverTimestamp()
+
+});
+
+const statsRef = doc(db,"stats","main");
+
+await updateDoc(statsRef,{
+thoughts:increment(1)
+});
+
+document.getElementById("thoughtUsername").value = "";
+
+document.getElementById("thoughtMessage").value = "";
+
+showToast("Thought Posted");
+
+loadVote();
+
+}catch(error){
+
+console.log(error);
+
+showToast("Error Posting Thought");
+
+}
+
+});
+
+
+/* LIVE THOUGHT POSTS */
+
+const thoughtsQuery = query(
+collection(db,"thoughts"),
+orderBy("created","desc")
+);
+
+onSnapshot(thoughtsQuery,(snapshot)=>{
+
+thoughtPosts.innerHTML = "";
+
+snapshot.forEach((docData)=>{
+
+const data = docData.data();
+
+const div = document.createElement("div");
+
+div.classList.add("post");
+
+div.innerHTML = `
+
+<div class="post-user">
+@${data.username}
+</div>
+
+<div class="post-text">
+${data.message}
+</div>
+
+`;
+
+thoughtPosts.appendChild(div);
+
+});
+
+});
+
+/* COMPLAINT SYSTEM */
+
+complaintBtn.addEventListener("click",async()=>{
+
+const username =
+document.getElementById("complaintUsername").value.trim();
+
+const message =
+document.getElementById("complaintMessage").value.trim();
+
+if(username === "" || message === ""){
+
+showToast("Fill All Fields");
+
+return;
+
+}
+
+try{
+
+await addDoc(collection(db,"complaints"),{
+
+username:username,
+
+message:message,
+
+created:serverTimestamp()
+
+});
+
+const statsRef = doc(db,"stats","main");
+
+await updateDoc(statsRef,{
+complaints:increment(1)
+});
+
+document.getElementById("complaintUsername").value = "";
+
+document.getElementById("complaintMessage").value = "";
+
+showToast("Complaint Submitted");
+
+loadVote();
+
+}catch(error){
+
+console.log(error);
+
+showToast("Error Submitting Complaint");
+
+}
+
+});
+
+/* LIVE COMPLAINT POSTS */
+
+const complaintQuery = query(
+collection(db,"complaints"),
+orderBy("created","desc")
+);
+
+onSnapshot(complaintQuery,(snapshot)=>{
+
+complaintPosts.innerHTML = "";
+
+snapshot.forEach((docData)=>{
+
+const data = docData.data();
+
+const div = document.createElement("div");
+
+div.classList.add("post");
+
+div.innerHTML = `
+
+<div class="post-user">
+@${data.username}
+</div>
+
+<div class="post-text">
+${data.message}
+</div>
+
+`;
+
+complaintPosts.appendChild(div);
+
+});
+
+});
+
+/* LOAD EVERYTHING */
+
+loadVote();
+
+/* PARTICLES */
+
+for(let i=0;i<25;i++){
+
+const particle = document.createElement("div");
+
+particle.style.position = "fixed";
+
+particle.style.width = Math.random()*5+2+"px";
+
+particle.style.height = particle.style.width;
+
+particle.style.background = "rgba(255,255,255,0.15)";
+
+particle.style.borderRadius = "50%";
+
+particle.style.left = Math.random()*100+"%";
+
+particle.style.top = Math.random()*100+"%";
+
+particle.style.pointerEvents = "none";
+
+particle.style.zIndex = "-1";
+
+particle.style.animation = `
+particleMove ${Math.random()*10+10}s linear infinite
+`;
+
+document.body.appendChild(particle);
+
+}
+
+const style = document.createElement("style");
+
+style.innerHTML = `
+
+@keyframes particleMove{
+
+0%{
+transform:translateY(0px);
+opacity:0;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-100vh);
+opacity:0;
+}
+
+}
+
+`;
+
+document.head.appendChild(style);
+
+/* AUTO GLOW EFFECT */
+
+setInterval(()=>{
+
+document.querySelectorAll(".card").forEach(card=>{
+
+card.style.boxShadow =
+"0 0 "+Math.floor(Math.random()*25)+"px rgba(0,217,255,0.15)";
+
+});
+
+},3000);
+
+/* RANDOM SLOGANS */
+
+const slogans = [
+
+"Justice Through Unity",
+
+"Voice Of The Citizens",
+
+"Future Built By People",
+
+"Power To The Public",
+
+"Modern Leadership For Everyone",
+
+"Transparency Creates Trust"
+
+];
+
+let sloganIndex = 0;
+
+const sloganElement = document.createElement("div");
+
+sloganElement.style.position = "fixed";
+
+sloganElement.style.bottom = "20px";
+
+sloganElement.style.left = "20px";
+
+sloganElement.style.padding = "12px 20px";
+
+sloganElement.style.background = "rgba(255,255,255,0.06)";
+
+sloganElement.style.border =
+"1px solid rgba(255,255,255,0.08)";
+
+sloganElement.style.backdropFilter = "blur(10px)";
+
+sloganElement.style.borderRadius = "15px";
+
+sloganElement.style.fontSize = "14px";
+
+sloganElement.style.color = "#fff";
+
+sloganElement.style.zIndex = "999";
+
+sloganElement.innerText = slogans[0];
+
+document.body.appendChild(sloganElement);
+
+setInterval(()=>{
+
+sloganIndex++;
+
+if(sloganIndex >= slogans.length){
+
+sloganIndex = 0;
+
+}
+
+sloganElement.style.opacity = "0";
+
+setTimeout(()=>{
+
+sloganElement.innerText = slogans[sloganIndex];
+
+sloganElement.style.opacity = "1";
+
+},400);
+
+},3500);
+
+/* VISITOR COUNTER */
+
+async function updateVisitors(){
+
+const visitorRef = doc(db,"stats","visitors");
+
+const visitorSnap = await getDoc(visitorRef);
+
+if(visitorSnap.exists()){
+
+await updateDoc(visitorRef,{
+count:increment(1)
+});
+
+}else{
+
+await setDoc(visitorRef,{
+count:1
+});
+
+}
+
+}
+
+updateVisitors();
+
+/* CURSOR GLOW */
+
+const cursor = document.createElement("div");
+
+cursor.style.width = "25px";
+
+cursor.style.height = "25px";
+
+cursor.style.borderRadius = "50%";
+
+cursor.style.position = "fixed";
+
+cursor.style.pointerEvents = "none";
+
+cursor.style.background =
+"radial-gradient(circle,rgba(0,217,255,0.7),transparent)";
+
+cursor.style.zIndex = "9999";
+
+cursor.style.transform = "translate(-50%,-50%)";
+
+document.body.appendChild(cursor);
+
+document.addEventListener("mousemove",(e)=>{
+
+cursor.style.left = e.clientX + "px";
+
+cursor.style.top = e.clientY + "px";
+
+});
+
+/* TYPING EFFECT */
+
+const heroTitle = document.querySelector(".hero h1");
+
+const originalText = heroTitle.innerText;
+
+heroTitle.innerText = "";
+
+let charIndex = 0;
+
+function typeEffect(){
+
+if(charIndex < originalText.length){
+
+heroTitle.innerText += originalText.charAt(charIndex);
+
+charIndex++;
+
+setTimeout(typeEffect,80);
+
+}
+
+}
+
+typeEffect();
+
+/* MOBILE MENU */
+
+const mobileBtn = document.createElement("button");
+
+mobileBtn.innerHTML = "☰";
+
+mobileBtn.style.position = "fixed";
+
+mobileBtn.style.top = "18px";
+
+mobileBtn.style.right = "20px";
+
+mobileBtn.style.zIndex = "9999";
+
+mobileBtn.style.background = "rgba(255,255,255,0.08)";
+
+mobileBtn.style.border = "none";
+
+mobileBtn.style.color = "white";
+
+mobileBtn.style.fontSize = "22px";
+
+mobileBtn.style.padding = "10px 16px";
+
+mobileBtn.style.borderRadius = "12px";
+
+mobileBtn.style.display = "none";
+
+document.body.appendChild(mobileBtn);
+
+if(window.innerWidth < 900){
+
+mobileBtn.style.display = "block";
+
+}
+
+mobileBtn.addEventListener("click",()=>{
+
+if(document.querySelector("nav ul").style.display === "flex"){
+
+document.querySelector("nav ul").style.display = "none";
+
+}else{
+
+document.querySelector("nav ul").style.display = "flex";
+
+document.querySelector("nav ul").style.flexDirection = "column";
+
+document.querySelector("nav ul").style.position = "fixed";
+
+document.querySelector("nav ul").style.top = "80px";
+
+document.querySelector("nav ul").style.right = "20px";
+
+document.querySelector("nav ul").style.padding = "20px";
+
+document.querySelector("nav ul").style.borderRadius = "20px";
+
+document.querySelector("nav ul").style.background =
+"rgba(0,0,0,0.8)";
+
+}
+
+});
+
+/* END */
+
+</script>
+
+</body>
+</html>
